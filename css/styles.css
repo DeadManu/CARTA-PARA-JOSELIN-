@@ -236,12 +236,6 @@ canvas#sparkCanvas{
   z-index:2;
 }
 
-.fire-message{
-  margin-top:14px;
-  color:#ffe0b5;
-  font-size:0.95rem;
-  min-height:1.4em;
-}
 
 .fire-out .time-box{
   background: rgba(130,130,140,0.16);
@@ -498,12 +492,9 @@ canvas#sparkCanvas{
 
 .typewriter-controls{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
-  gap:12px;
   margin-bottom:16px;
-  color:#9b6174;
-  font-size:0.95rem;
   border-bottom:1px solid rgba(217,168,95,0.22);
   padding-bottom:12px;
 }
@@ -624,13 +615,26 @@ canvas#sparkCanvas{
 }
 
 .tulip-area{
-  background: rgba(255, 248, 248, 0.62);
-  border:1px solid rgba(217,168,95,0.28);
-  border-radius:22px;
-  padding: 16px 14px 14px;
+  background:
+    radial-gradient(circle at top, rgba(255, 236, 244, 0.98), rgba(255, 248, 248, 0.88) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,247,250,0.68));
+  border:1px solid rgba(217,168,95,0.34);
+  border-radius:26px;
+  padding: 18px 16px 16px;
   text-align:center;
   position:relative;
   overflow:hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.40),
+    0 12px 26px rgba(0,0,0,0.06);
+}
+.tulip-area::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.42);
+  pointer-events:none;
 }
 .tulip-area h3{
   color:#b8235f;
@@ -640,46 +644,74 @@ canvas#sparkCanvas{
 .tulip-note{
   margin-top:10px;
   color:#815763;
-  font-size:0.92rem;
-  line-height:1.5;
+  font-size:0.93rem;
+  line-height:1.55;
 }
 
 .tulip-scene{
   position:relative;
-  width:min(100%, 260px);
-  height:360px;
+  width:min(100%, 278px);
+  height:386px;
   margin: 0 auto;
+}
+.tulip-scene::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:34px;
+  transform:translateX(-50%);
+  width:168px;
+  height:168px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255, 192, 220, 0.50), rgba(255, 192, 220, 0.14) 58%, transparent 74%);
+  filter: blur(2px);
+}
+.tulip-scene::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  width:82px;
+  height:12px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(70,60,70,0.18), rgba(70,60,70,0.04));
+  filter: blur(2px);
 }
 .tulip-svg{
   width:100%;
   height:100%;
   display:block;
+  position:relative;
+  z-index:2;
 }
 
 .petal{
   position:absolute;
-  width:22px;
-  height:30px;
-  background: radial-gradient(circle at 30% 28%, #ffb0cb, #e14382 70%);
-  border-radius: 60% 60% 60% 10%;
+  width:20px;
+  height:31px;
+  background: radial-gradient(circle at 30% 28%, #ffe0eb, #f36a9d 72%, #c81f5c 100%);
+  border-radius: 64% 64% 64% 14%;
   opacity:0;
   transform-origin:center;
-  filter: drop-shadow(0 2px 4px rgba(171,30,86,0.24));
+  filter: drop-shadow(0 3px 4px rgba(171,30,86,0.18));
+  z-index:3;
 }
 .petal::after{
   content:"";
   position:absolute;
-  inset:2px;
+  inset:3px;
   border-radius:inherit;
-  border-left:1px solid rgba(255,255,255,0.26);
+  border-left:1px solid rgba(255,255,255,0.25);
 }
-.petal-1{ left:106px; top:42px; animation: fallPetal1 9s linear infinite 0.4s; }
-.petal-2{ left:128px; top:52px; animation: fallPetal2 10s linear infinite 1.8s; }
-.petal-3{ left:84px; top:58px; animation: fallPetal3 8.8s linear infinite 3s; }
-.petal-4{ left:112px; top:36px; animation: fallPetal4 10.5s linear infinite 4.8s; }
-.petal-5{ left:92px; top:48px; animation: fallPetal5 9.6s linear infinite 6.2s; }
-.petal-6{ left:124px; top:44px; animation: fallPetal6 11s linear infinite 7.1s; }
-.petal-7{ left:110px; top:50px; animation: fallPetal7 9.9s linear infinite 8.2s; }
+.petal-1{ left:119px; top:58px; animation: fallPetal1 10s linear infinite 0.2s; }
+.petal-2{ left:139px; top:66px; animation: fallPetal2 11s linear infinite 1.4s; }
+.petal-3{ left:97px; top:68px; animation: fallPetal3 9.6s linear infinite 2.3s; }
+.petal-4{ left:129px; top:48px; animation: fallPetal4 11.2s linear infinite 3.7s; }
+.petal-5{ left:105px; top:53px; animation: fallPetal5 10.1s linear infinite 5.0s; }
+.petal-6{ left:144px; top:54px; animation: fallPetal6 11.6s linear infinite 6.4s; }
+.petal-7{ left:114px; top:65px; animation: fallPetal7 10.2s linear infinite 7.7s; }
+.petal-8{ left:126px; top:61px; animation: fallPetal8 10s linear infinite 8.5s; }
 
 .letter-footer{
   margin-top: 32px;
@@ -734,7 +766,12 @@ canvas#sparkCanvas{
 @keyframes fallPetal7{
   0%{ opacity:0; transform:translate(0,0) rotate(-2deg) scale(.72); }
   9%{ opacity:1; }
-  100%{ opacity:0; transform:translate(5px,248px) rotate(250deg) scale(1.04); }
+  100%{ opacity:0; transform:translate(8px,248px) rotate(250deg) scale(1.04); }
+}
+@keyframes fallPetal8{
+  0%{ opacity:0; transform:translate(0,0) rotate(8deg) scale(.75); }
+  10%{ opacity:1; }
+  100%{ opacity:0; transform:translate(-10px,262px) rotate(325deg) scale(1.02); }
 }
 
 @media (max-width: 940px){
@@ -790,13 +827,12 @@ canvas#sparkCanvas{
     line-height:1.78;
   }
   .typewriter-controls{
-    flex-direction:column;
-    align-items:flex-start;
+    justify-content:flex-end;
   }
   .signature-block{
     text-align:left;
   }
   .tulip-scene{
-    height: 320px;
+    height: 340px;
   }
 }
