@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Carta para Joselin</title>
+  <meta name="description" content="Carta animada con sobre, música, contador en fuego, tulipán y efecto máquina de escribir." />
+  <meta name="theme-color" content="#170711" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="sparkCanvas" aria-hidden="true"></canvas>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Activar o pausar música">
+    ♪ Música
+  </button>
+
+  <section class="hero" id="inicio">
+    <div class="hero-card">
+      <div class="glow-heart" aria-hidden="true"></div>
+
+      <p class="hero-date">17 de junio de 2026</p>
+      <h1>Para Joselin</h1>
+
+      <div class="countdown-panel">
+        <p class="countdown-phrase">
+          Cada segundo que pasa me acerca al final de esta espera, pero nunca borrará lo que siento por ti. ❤️
+        </p>
+
+        <div class="countdown fire-active" id="countdown" data-end="2027-06-11T04:44:56Z">
+          <div class="time-box">
+            <span class="time-number">--</span>
+            <span class="time-label">Días</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number">--</span>
+            <span class="time-label">Horas</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number">--</span>
+            <span class="time-label">Minutos</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number">--</span>
+            <span class="time-label">Segundos</span>
+          </div>
+        </div>
+
+        <p id="fireMessage" class="fire-message">El fuego sigue vivo mientras el tiempo avanza.</p>
+      </div>
+
+      <div class="envelope-stage" aria-label="Sobre animado">
+        <div class="envelope" id="envelope">
+          <div class="envelope-letter">
+            <span>Joselin</span>
+          </div>
+          <div class="env-back"></div>
+          <div class="env-left"></div>
+          <div class="env-right"></div>
+          <div class="env-bottom"></div>
+          <div class="env-flap"></div>
+          <div class="env-seal">❤</div>
+        </div>
+      </div>
+
+      <button class="main-button" id="openEnvelopeBtn" type="button">
+        Abrir sobre 💌
+      </button>
+
+      <p class="hint">Toca el sobre para abrir la carta</p>
+    </div>
+  </section>
+
+  <section class="letter-section" id="carta">
+    <article class="letter-paper">
+      <div class="letter-inner">
+        <header class="letter-header">
+          <p class="letter-date">17 de junio de 2026</p>
+          <h2>Querida Joselin:</h2>
+          <div class="line-deco"></div>
+        </header>
+
+        <div class="letter-layout">
+          <div class="letter-text-card">
+            <div class="typewriter-controls">
+              <span>Modo carta animada</span>
+              <button id="showFullLetter" type="button">Mostrar completa</button>
+            </div>
+
+            <div class="letter-text typewriter-text" id="typewriterText">
+              <p class="placeholder-line">Abriendo carta...</p>
+            </div>
+
+            <div class="signature-block">
+              <p>Con cariño,</p>
+              <p class="signature">Emanuel</p>
+            </div>
+          </div>
+
+          <aside class="letter-side">
+            <figure class="memory-photo elegant-frame">
+              <div class="photo-ribbon">Nuestro recuerdo</div>
+              <img src="assets/foto-joselin.png" alt="Foto especial de ustedes" />
+              <figcaption>Había un motivo más enorme de lo que veían mis ojos.</figcaption>
+            </figure>
+
+            <div class="tulip-area">
+              <h3>Tulipán</h3>
+              <div class="tulip-scene" id="tulipScene">
+                <svg class="tulip-svg" viewBox="0 0 220 340" aria-label="Tulipán decorativo">
+                  <defs>
+                    <linearGradient id="petalGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#ff95bb" />
+                      <stop offset="100%" stop-color="#d41f68" />
+                    </linearGradient>
+                    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#79d278" />
+                      <stop offset="100%" stop-color="#2d8f4f" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="220" height="340" fill="transparent" />
+                  <path d="M110 310 C108 270, 109 210, 112 140" fill="none" stroke="#3b9a55" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M112 225 C72 204, 52 186, 44 155 C73 164, 97 185, 112 211" fill="url(#leafGrad)" opacity="0.95"/>
+                  <path d="M111 200 C145 179, 169 157, 177 132 C151 139, 127 159, 111 186" fill="url(#leafGrad)" opacity="0.92"/>
+                  <path d="M72 108 C82 74, 95 52, 110 34 C124 53, 137 75, 147 108 C134 117, 122 122, 110 122 C98 122, 85 117, 72 108 Z" fill="url(#petalGrad)"/>
+                  <path d="M49 112 C57 83, 73 61, 95 45 C96 68, 93 91, 87 113 C73 120, 61 120, 49 112 Z" fill="#e34886"/>
+                  <path d="M171 112 C163 83, 147 61, 125 45 C124 68, 127 91, 133 113 C147 120, 159 120, 171 112 Z" fill="#e34886"/>
+                  <path d="M86 122 C95 98, 104 82, 110 68 C116 82, 125 98, 134 122 C118 128, 101 128, 86 122 Z" fill="#ffb0cb"/>
+                </svg>
+
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
+                <div class="petal petal-5"></div>
+                <div class="petal petal-6"></div>
+                <div class="petal petal-7"></div>
+              </div>
+              <p class="tulip-note">Como un recuerdo que el viento toca suavemente.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="letter-footer">
+          <a href="#inicio" class="secondary-button">Volver al inicio</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

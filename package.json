@@ -1,0 +1,13 @@
+{
+  "name": "carta-sobre-musica-typewriter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Carta web con sobre, música, contador en fuego, tulipán y efecto máquina de escribir.",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
