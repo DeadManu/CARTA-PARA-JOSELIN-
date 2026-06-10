@@ -49,7 +49,6 @@
           </div>
         </div>
 
-        <p id="fireMessage" class="fire-message">El fuego sigue vivo mientras el tiempo avanza.</p>
       </div>
 
       <div class="envelope-stage" aria-label="Sobre animado">
@@ -86,7 +85,6 @@
         <div class="letter-layout">
           <div class="letter-text-card">
             <div class="typewriter-controls">
-              <span>Modo carta animada</span>
               <button id="showFullLetter" type="button">Mostrar completa</button>
             </div>
 
@@ -107,28 +105,80 @@
               <figcaption>Había un motivo más enorme de lo que veían mis ojos.</figcaption>
             </figure>
 
-            <div class="tulip-area">
+            <div class="tulip-area tulip-3d-area">
               <h3>Tulipán</h3>
-              <div class="tulip-scene" id="tulipScene">
-                <svg class="tulip-svg" viewBox="0 0 220 340" aria-label="Tulipán decorativo">
+              <div class="tulip-scene tulip-scene-3d" id="tulipScene">
+                <svg class="tulip-svg" viewBox="0 0 280 400" aria-label="Tulipán decorativo elegante en 3D">
                   <defs>
-                    <linearGradient id="petalGrad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#ff95bb" />
-                      <stop offset="100%" stop-color="#d41f68" />
+                    <linearGradient id="vaseGlass" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                      <stop offset="55%" stop-color="rgba(234,245,255,0.55)"/>
+                      <stop offset="100%" stop-color="rgba(183,216,236,0.35)"/>
                     </linearGradient>
-                    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#79d278" />
-                      <stop offset="100%" stop-color="#2d8f4f" />
+                    <linearGradient id="vaseWater" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(148, 214, 231, 0.55)"/>
+                      <stop offset="100%" stop-color="rgba(96, 168, 194, 0.75)"/>
                     </linearGradient>
+                    <linearGradient id="stem3d" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#84df86"/>
+                      <stop offset="55%" stop-color="#49af61"/>
+                      <stop offset="100%" stop-color="#28794a"/>
+                    </linearGradient>
+                    <linearGradient id="leaf3d" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#a5ef99"/>
+                      <stop offset="45%" stop-color="#63c76a"/>
+                      <stop offset="100%" stop-color="#2a8a4e"/>
+                    </linearGradient>
+                    <linearGradient id="petalMain3d" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#ffd4e4"/>
+                      <stop offset="35%" stop-color="#ff8fbd"/>
+                      <stop offset="70%" stop-color="#ef4f8f"/>
+                      <stop offset="100%" stop-color="#b91f5c"/>
+                    </linearGradient>
+                    <linearGradient id="petalDeep3d" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ffbfd5"/>
+                      <stop offset="100%" stop-color="#de3a7d"/>
+                    </linearGradient>
+                    <linearGradient id="petalCenter3d" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ffe6ef"/>
+                      <stop offset="100%" stop-color="#ffb4d0"/>
+                    </linearGradient>
+                    <radialGradient id="glow3d" cx="50%" cy="34%" r="50%">
+                      <stop offset="0%" stop-color="rgba(255, 198, 221, 0.75)"/>
+                      <stop offset="60%" stop-color="rgba(255, 198, 221, 0.22)"/>
+                      <stop offset="100%" stop-color="rgba(255, 198, 221, 0)"/>
+                    </radialGradient>
+                    <filter id="softShadow3d" x="-50%" y="-50%" width="200%" height="200%">
+                      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="rgba(147,46,90,0.24)"/>
+                    </filter>
+                    <filter id="glassShine" x="-50%" y="-50%" width="200%" height="200%">
+                      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="rgba(110,120,130,0.12)"/>
+                    </filter>
                   </defs>
-                  <rect width="220" height="340" fill="transparent" />
-                  <path d="M110 310 C108 270, 109 210, 112 140" fill="none" stroke="#3b9a55" stroke-width="10" stroke-linecap="round"/>
-                  <path d="M112 225 C72 204, 52 186, 44 155 C73 164, 97 185, 112 211" fill="url(#leafGrad)" opacity="0.95"/>
-                  <path d="M111 200 C145 179, 169 157, 177 132 C151 139, 127 159, 111 186" fill="url(#leafGrad)" opacity="0.92"/>
-                  <path d="M72 108 C82 74, 95 52, 110 34 C124 53, 137 75, 147 108 C134 117, 122 122, 110 122 C98 122, 85 117, 72 108 Z" fill="url(#petalGrad)"/>
-                  <path d="M49 112 C57 83, 73 61, 95 45 C96 68, 93 91, 87 113 C73 120, 61 120, 49 112 Z" fill="#e34886"/>
-                  <path d="M171 112 C163 83, 147 61, 125 45 C124 68, 127 91, 133 113 C147 120, 159 120, 171 112 Z" fill="#e34886"/>
-                  <path d="M86 122 C95 98, 104 82, 110 68 C116 82, 125 98, 134 122 C118 128, 101 128, 86 122 Z" fill="#ffb0cb"/>
+
+                  <ellipse cx="140" cy="360" rx="60" ry="12" fill="rgba(80, 60, 70, 0.12)" />
+                  <circle cx="140" cy="118" r="74" fill="url(#glow3d)" opacity="0.85"/>
+
+                  <g filter="url(#softShadow3d)">
+                    <path d="M140 306 C137 274, 138 219, 140 138" fill="none" stroke="url(#stem3d)" stroke-width="11" stroke-linecap="round"/>
+                    <path d="M139 236 C98 212, 75 189, 58 152 C97 158, 122 183, 139 221" fill="url(#leaf3d)"/>
+                    <path d="M142 210 C183 191, 206 165, 222 129 C187 137, 161 161, 142 197" fill="url(#leaf3d)"/>
+
+                    <path d="M91 126 C92 89, 106 61, 134 43 C134 73, 129 101, 121 129 C108 136, 98 135, 91 126 Z" fill="url(#petalDeep3d)"/>
+                    <path d="M189 126 C188 89, 174 61, 146 43 C146 73, 151 101, 159 129 C172 136, 182 135, 189 126 Z" fill="url(#petalDeep3d)"/>
+                    <path d="M104 132 C107 86, 120 53, 140 28 C160 53, 173 86, 176 132 C165 145, 153 152, 140 152 C127 152, 115 145, 104 132 Z" fill="url(#petalMain3d)"/>
+                    <path d="M123 130 C127 104, 132 84, 140 67 C148 84, 153 104, 157 130 C151 135, 146 137, 140 137 C134 137, 129 135, 123 130 Z" fill="url(#petalCenter3d)" opacity="0.95"/>
+                    <path d="M111 128 C121 121, 131 119, 140 119 C149 119, 159 121, 169 128" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M117 80 C126 63, 133 51, 140 40" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="3" stroke-linecap="round"/>
+                  </g>
+
+                  <g filter="url(#glassShine)">
+                    <path d="M102 308 C104 338, 111 348, 118 354 C128 360, 152 360, 162 354 C169 348, 176 338, 178 308 Z" fill="url(#vaseGlass)" stroke="rgba(195,215,230,0.65)" stroke-width="2"/>
+                    <path d="M109 309 C111 329, 118 338, 124 343 C133 347, 147 347, 156 343 C162 338, 169 329, 171 309 Z" fill="url(#vaseWater)" opacity="0.72"/>
+                    <path d="M109 308 C110 317, 110 326, 109 334" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M122 308 C123 322, 122 336, 121 347" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                    <ellipse cx="140" cy="307" rx="39" ry="6" fill="rgba(255,255,255,0.32)"/>
+                  </g>
                 </svg>
 
                 <div class="petal petal-1"></div>
@@ -138,8 +188,9 @@
                 <div class="petal petal-5"></div>
                 <div class="petal petal-6"></div>
                 <div class="petal petal-7"></div>
+                <div class="petal petal-8"></div>
               </div>
-              <p class="tulip-note">Como un recuerdo que el viento toca suavemente.</p>
+              <p class="tulip-note">Un tulipán más elegante, delicado y con efecto 3D.</p>
             </div>
           </aside>
         </div>
